@@ -10,15 +10,19 @@ export class TareaService {
     private http: HttpClient
   ) { }
 
-  get(){
-
+  getAll(){
+    return this.http.get('http://localhost:8080/api/tareas');
   }
 
   create(tarea : any){
-    
+    return this.http.post('http://localhost:8080/api/tareas', tarea);
   }
 
-  update(id:number, tarea : any){
+  update(href:string, tarea : any){
+    return this.http.put(href, tarea);
+  }
 
+  delete(href: string){
+    return this.http.delete(href);
   }
 }
